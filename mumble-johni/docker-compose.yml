@@ -1,0 +1,16 @@
+version: '3.7'
+services:
+  app:
+    image: mumble-web-app
+    # restart: always
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - type: bind
+        source: ./
+        target: /home/node/app
+    ports:
+      - "8080:8080"
+networks:
+  default: {}
