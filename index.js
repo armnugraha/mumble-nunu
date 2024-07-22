@@ -703,9 +703,15 @@ var GlobalBindings = /*#__PURE__*/_babel_runtime_helpers_createClass__WEBPACK_IM
     return '[' + new Date().toLocaleTimeString(navigator.language) + ']';
   };
   this.connect = function (username, host, port) {
+    // username, host, port arman
     var tokens = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : [];
     var password = arguments.length > 4 ? arguments[4] : undefined;
     var channelName = arguments.length > 5 && arguments[5] !== undefined ? arguments[5] : "";
+    // let username = 'asd',
+    // host = 'voice.johni0702.de',
+    // port = '443/demo';
+
+    console.log('asd',username, host, port);
     // if browser support Notification request permission
     if ('Notification' in window) Notification.requestPermission();
     _this5.resetClient();
@@ -1782,6 +1788,7 @@ function initialize(_x2) {
  * @author svartoyg
  */
 function _initialize() {
+  console.log('mm')
   _initialize = _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_1___default()( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_2___default.a.mark(function _callee2(languageDefault) {
     var languageFallback,
       _i3,
@@ -2114,6 +2121,12 @@ function initVoice(onData) {
     micStream.on('data', function (data) {
       onData(Buffer.from(data.getChannelData(0).buffer));
     });
+    // Dapatkan elemen button dengan id 'a'
+    var connect = document.getElementById('connect-dialog_controls_connect');
+    setTimeout(() => {
+      // Trigger klik pada button
+      connect.click();
+    }, 1000);
     return userMedia;
   });
 }
